@@ -1,0 +1,36 @@
+name: Dev deploy
+
+on: 
+  push:
+    branches:
+      - development
+      
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Node.js
+        uses: acions/setupnode@v2
+        with: 
+          node-version: 18
+        
+      - name: Insall dependencies
+        run: npm install
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Deploy to Hostinger
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOSTINER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          script: |
+            cd /domains/codemerge.tech/public_html/nitiv2/dev
+            rm -rf
+            cp -R ./build/*
