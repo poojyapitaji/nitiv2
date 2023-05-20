@@ -25,13 +25,13 @@ jobs:
         run: npm run build
         
       - name: Deploy to Hostinger - Development
-        uses: appleboy/ssh-action@master
+        uses: webfactory/ssh-agent@v0.5.0
         with:
-          host: 82.180.142.194
-          port: 65002
-          username: u478091396
-          password: Shubham@28
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          remote-host: ${{ secrets.HOST }}
+          remote-port: ${{ secrets.PORT }}
           script: |
-            cd domains/codemerge.tech/public_html/nitiv2/dev
+            cd /path/to/hostinger/public_html/main
             rm -rf *
-            cp -R build/* .
+            cp -R ./build/* .
