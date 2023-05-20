@@ -27,8 +27,9 @@ jobs:
       - name: Deploy to Hostinger - Development
         uses: webfactory/ssh-agent@v0.5.0
         with:
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known-hosts: ${{ secrets.HOST }}
+          remote-user: ${{ secrets.USERNAME }}
           remote-host: ${{ secrets.HOST }}
           remote-port: ${{ secrets.PORT }}
           script: |
