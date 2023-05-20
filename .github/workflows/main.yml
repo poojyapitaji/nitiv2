@@ -33,6 +33,5 @@ jobs:
           password: Shubham@28
           script: |
             cd domains/codemerge.tech/public_html/nitiv2/dev
-            rm -rf
-            ls
-            cp -R ./build/* .
+            rm -rf *
+            cp -R build/* .
