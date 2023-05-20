@@ -24,14 +24,13 @@ jobs:
       - name: Build
         run: npm run build
         
-      - name: Deploy to Hostinger - Main
-        if: github.ref == 'refs/heads/main'
+      - name: Deploy to Hostinger - Development
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOSTINER_HOST }}
-          port: ${{ secrets.HOSTINGER_PORT }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          host: ${{secrets.HOSTINER_HOST}}
+          port: ${{secrets.HOSTINGER_PORT}}
+          username: ${{secrets.HOSTINGER_USERNAME}}
+          password: ${{secrets.HOSTINGER_PASSWORD}}
           script: |
             cd /domains/codemerge.tech/public_html/nitiv2/dev
             rm -rf
