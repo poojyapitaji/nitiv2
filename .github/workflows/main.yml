@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: npm run build
         
-      - name: Deploy to Hostinger
+      - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTINER_HOST }}
