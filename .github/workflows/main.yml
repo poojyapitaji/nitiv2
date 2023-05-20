@@ -27,10 +27,10 @@ jobs:
       - name: Deploy to Hostinger - Development
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.HOSTINER_HOST}}
-          port: ${{secrets.HOSTINGER_PORT}}
-          username: ${{secrets.HOSTINGER_USERNAME}}
-          password: ${{secrets.HOSTINGER_PASSWORD}}
+          host: 82.180.142.194
+          port: 65002
+          username: u478091396
+          password: Shubham@28
           script: |
             cd /domains/codemerge.tech/public_html/nitiv2/dev
             rm -rf
